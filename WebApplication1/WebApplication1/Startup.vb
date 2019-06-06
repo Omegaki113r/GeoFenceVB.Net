@@ -62,7 +62,11 @@ Partial Public Class Startup
         Dim pickupType As Newtonsoft.Json.Linq.JToken = pickupPoint.Item("type")
         Dim carrierInfo As Newtonsoft.Json.Linq.JToken = pickupPoint.Item("carrier_info")
         Dim carrierInfoEle As Newtonsoft.Json.Linq.JToken = carrierInfo.Item(carrierInfo.ToString())
-        Dim idCarrierInfo As Newtonsoft.Json.Linq.JToken = carrierInfoEle.Item("id")
+        Try
+            Dim idCarrierInfo As Newtonsoft.Json.Linq.JToken = carrierInfoEle.Item("id")
+        Catch ex As Exception
+
+        End Try
         Dim weight As Newtonsoft.Json.Linq.JToken = thisToken.Item("weight")
         Dim volume As Newtonsoft.Json.Linq.JToken = thisToken.Item("volume_cm3")
         Debug.WriteLine(lattitude.ToString())
